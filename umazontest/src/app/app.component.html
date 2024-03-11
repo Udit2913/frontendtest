@@ -1,0 +1,47 @@
+<body>
+  <div>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <label for="fname">First Name:</label>
+      <input
+        type="text"
+        id="fname"
+        name="fname"
+        [(ngModel)]="newUser.fname"
+        required
+      />
+
+      <label for="lname">Last Name:</label>
+      <input
+        type="text"
+        id="lname"
+        name="lname"
+        [(ngModel)]="newUser.lname"
+        required
+      />
+
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        [(ngModel)]="newUser.age"
+        required
+      />
+
+      <button type="submit" [disabled]="userForm.invalid">Add User</button>
+    </form>
+  </div>
+
+  <h1>Users data</h1>
+  <div>
+    <ul>
+      <li *ngFor="let user of users">{{ user.fname }} {{ user.lname }}</li>
+    </ul>
+  </div>
+</body>
+<button>
+  <a [routerLink]="['products']" style="text-decoration: none; color: black"
+    >Products</a
+  >
+</button>
+<router-outlet></router-outlet>
